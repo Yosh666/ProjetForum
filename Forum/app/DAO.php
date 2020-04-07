@@ -1,5 +1,5 @@
 <?php
-    namespace app;
+    namespace App;
 
 
 
@@ -55,7 +55,7 @@
                 return $result;
 
             }
-//anteslash comme pr PDO?? 
+//anteslash comme pr PDO et comme pr toute les classes natives de php
            catch (\Exception $e){
                 echo $e->getMessage();
             }
@@ -83,8 +83,9 @@
                 }
                 $statement->closeCursor();
                 return($results == false)? null : $results;
-/*si $results == false  alors null sinon $results
-//je comprends pas la....*/
+                /*si $results == false  alors null sinon $results
+                car on cherche des $params = null et pas false sinon ça pertube le game tu vois
+                les managers veulent des $result ou des "null" pas des falses*/
             }
             catch(\Exception $e){
                 echo $e->getMessage();
