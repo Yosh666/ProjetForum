@@ -1,7 +1,7 @@
 <?php
     $auteurs= $result["data"]["user"];
     $sujets= $result['data']['sujet'];
-    var_dump($sujets);
+    
 ?>
 <h2 class= "bleu titre" >Accueil</h2>
 <?php
@@ -10,11 +10,16 @@
             echo 
             "<div class='bordure flex'>
                 <div class='bordure flex-petit'>
-                    auteur: ".$sujet->getUser()."
+                    auteur:<br> ".$sujet->getUser()."
                 </div>
+               
                 <div class='bordure flex-grand'>
-                ".$sujet."
+                    <a href='?ctrl=forum&action=readsubject&id=".$sujet->getId()."'>
+                        <h3 class= 'brune'>".$sujet->getTitre()."</h3>
+                        <p> écrit le: ".$sujet->getDate_publication()."</p>
+                    </a>
                 </div>
+                
             </div>";
         }
     }

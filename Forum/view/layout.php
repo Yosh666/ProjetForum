@@ -48,11 +48,11 @@ du coup faudra fr le css tout ça*/
             </main>   
             <footer>
                 <p>
-                    <button class="cadre">
-                        <a href="?ctrl=connexion&action=logout">
-                            Déconnexion
-                        </a>
-                    </button>
+                    
+                    <a class="cadre"href="?ctrl=connexion&action=logout">
+                        Déconnexion
+                    </a>
+                    
                 </p>
                 <p>
                     la dépression cette ennemi du confinement vazy paye ta solitude avec des gifs de chats....

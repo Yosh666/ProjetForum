@@ -11,13 +11,16 @@
         private $user;
 
 
+        public function __construct($data){         
+                $this->hydrate($data);        
+            }
+        
 
-
-        public function __toString()
+        /*public function __toString()
         {
                 return "<p class= 'bleu'>".$this->titre."</p>
                         <p> ajouté le: ".$this->date_publication."</p>";
-        }
+        }*/
 
         /**
          * Get the value of id

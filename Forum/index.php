@@ -52,12 +52,13 @@
         ça veut dire qu'il faut un index() dans TOUT les controllers!!!*/
         else $action ="index";
         
-        if (isset($_GET['id'])){
-            $id=$_GET['id'];
+        
+        if(isset($_GET['id'])){
+            $id = $_GET['id'];
         }
-        else $id=null;
-
-        $result =$ctrl->$action($id);
+        else $id = null;
+    
+        $result = $ctrl->$action($id);
 // l'url par defaut c'est: index.php?ctrl=connexion&action=index&id=null
 
 

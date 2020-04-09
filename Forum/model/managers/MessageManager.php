@@ -4,6 +4,11 @@
     use App\Manager;
     use App\DAO;
     use  Model\Entities\Message;
+
+    /**
+     * ce manager gére les message
+     * @method findBySujet($idsujet)
+     */
     final class MessageManager extends Manager{
 
 
@@ -15,6 +20,17 @@
             parent::connect();
         }
         
+        public function findBySujet($idSujet){
+            $sql = "SELECT *
+                    FROM ".$this->tableName." m
+                    WHERE m.sujet_id= :id
+                    ORDER BY date_post DESC
+                    ";
+            return $this->getMultipleResults(
+                DAO:: select($sql,['id'=>$idSujet]),
+                $this->className
+            );
+        }
     
     
     

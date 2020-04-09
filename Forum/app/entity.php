@@ -5,6 +5,9 @@
      */
     abstract class Entity{
 
+        
+            
+        
         /**
          * cette méthode va servir à hydrater les objets depuis la BDD
          * @method hydrate($data) retourne un objet contenant un tableau associatif
@@ -29,13 +32,13 @@
                 }
 //tentative de setter toutes les dates dans le bon format
                 /* toutes les dates de la table sont écrites de la facon date_trucmachin*/
-                /*if(isset($fieldArray[1]) && $fieldArray[0]=="date"){
+                if(isset($fieldArray[1]) && $fieldArray[0]=="date"){
                     $methoddate= 'set'.ucfirst($fieldArray[0]).'_'.$fieldArray[1];
                     if (method_exists($this,$methoddate)){
                         $value=strftime('%d/ %m/ %Y',strtotime($value));
                         $this->$methoddate($value);
                     }
-                } */
+                } 
                 
                 /*on va setter dans chaque objet les données
                 nom=>Audrey
