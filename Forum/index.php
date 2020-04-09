@@ -32,21 +32,25 @@
         use App\Session as Session;
 
 //interception de requête http
-//(le truc que j'ai pas bien compris encore.... )
+
 
         if (isset($_GET['ctrl'])){
             $ctrlname=$_GET['ctrl'];
+        //si on chope un 'ctrl' on va en afficher l'url sinon de base on passera par le connexion controller
         }
         else $ctrlname ="connexion";
-//on verra pr connexion controller plus tard hein
 
         $ctrlname= "Controller".DS.ucfirst($ctrlname)."Controller";
 
         $ctrl = new $ctrlname();
         if (isset($_GET['action'])){
             $action = $_GET['action'];
+        //si con chope une action on l'inscrit dans l'url
         }
-        else $action ="login";
+        //sinon de base action=index
+/*-!-!-!-!-!-! attention -!-!-!-!
+        ça veut dire qu'il faut un index() dans TOUT les controllers!!!*/
+        else $action ="index";
         
         if (isset($_GET['id'])){
             $id=$_GET['id'];
@@ -54,6 +58,7 @@
         else $id=null;
 
         $result =$ctrl->$action($id);
+// l'url par defaut c'est: index.php?ctrl=connexion&action=index&id=null
 
 
 /*ici on va charger le layout avant la page view 

@@ -19,20 +19,26 @@ du coup faudra fr le css tout ça*/
 /*ici on va mettre les messages d'erreurs (getFlash()) de session*/
 //session a faire!
 -->
-            <h3 id='message' style="color: red">
-                <?= App\Session::getFlash("error")
-                //message d'erreur ?>
-            </h3> 
-            <h3 id="message" style= "color:green">
-            <?= App\Session:: getFlash("success")?>
-            </h3>
 
             <header>
                 <img src="./public/img/pangolin.jpg" alt="pango" id="logo">
-                <h1 class="bleu">
+                <h1 class="bleu titre">
                     AUX SURVIVALISTES GOURMETS
                 </h1>
                 
+            <h3 id='message' class= "red">
+                <?= App\Session::getFlash("error")
+                /*message de validation ici on choisit ou les afficher dans le layout 
+                et la class qui donnera une couleur dans le css
+                selon le type de message (erreur succés validation welcome....)*/
+                 ?>
+            </h3> 
+            <h3 id="message" class="bleu">
+            <?= App\Session:: getFlash("process")?>
+            </h3>
+            <h3 id="message" class="green">
+            <?= App\Session:: getFlash("success")?>
+            </h3>
             </header>
 
             <main id='forumconnecte'>
@@ -41,6 +47,13 @@ du coup faudra fr le css tout ça*/
             
             </main>   
             <footer>
+                <p>
+                    <button class="cadre">
+                        <a href="?ctrl=connexion&action=logout">
+                            Déconnexion
+                        </a>
+                    </button>
+                </p>
                 <p>
                     la dépression cette ennemi du confinement vazy paye ta solitude avec des gifs de chats....
                 </p>

@@ -53,6 +53,7 @@
 
                 $statement->closeCursor();
                 return $result;
+                
 
             }
 //anteslash comme pr PDO et comme pr toute les classes natives de php

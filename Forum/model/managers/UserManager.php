@@ -17,6 +17,43 @@
             parent::connect();
         }
         
+        public function checkUserExists($mail,$pseudo){
+            $sql= "SELECT COUNT(id_user)
+                FROM ".$this->tableName." u 
+                WHERE u.mail = :mail 
+                OR u.pseudo = :pseudo"
+                ;
+                return DAO::select($sql,['mail'=>$mail,'pseudo'=>$pseudo]);
+
+        }
+        public function checkUserValidate($pseudo){
+            $sql="SELECT COUNT(id_user)
+                FROM ".$this->tableName." u 
+                WHERE u.pseudo = :pseudo"
+                ;
+                return DAO::select($sql,['pseudo'=>$pseudo]);
+        }
+        public function retrievePassword($pseudo,$password){
+            $sql="SELECT COUNT(id_user)
+                FROM ".$this->tableName." u
+                WHERE u.pseudo= :pseudo 
+                AND u.password= :password"
+                ;
+                return DAO::select($sql,['pseudo'=>$pseudo,"password"=>$password]);
+        }
+        public function findOneByUserName($pseudo){
+
+            $sql ="SELECT *
+                    FROM ".$this->tableName." u           
+                    WHERE u.pseudo = :pseudo 
+                    ";
+            
+            return $this->getOneOrNullResult(
+                DAO:: select($sql,['pseudo'=> $pseudo], false),/*le false est pr les argument de la fonction DAO:: select() ou multiple= true par défaut
+                dans DAO si l'argument multiple est à false ça lance un fetch() et pas un fetchAll()*/
+                $this->className
+            );            
+        }
 
         /*findAll()
         findOneById()

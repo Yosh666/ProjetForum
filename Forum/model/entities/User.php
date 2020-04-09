@@ -20,7 +20,10 @@
             $this->hydrate($data);
         }    
 
-
+        public function __toString()
+        {
+                return $this->pseudo;
+        }
 
         /**
          * Get the value of date_inscription

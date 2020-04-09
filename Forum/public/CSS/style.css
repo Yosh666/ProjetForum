@@ -1,11 +1,17 @@
+*{
+    box-sizing: border-box;
+    margin: 0 auto;
+    padding: 1em;
+}
 body{
+    width: 80%;
     font-family: 'Roboto', sans-serif;
 }
 header{
     display: flex;
 }
 #logo{
-    
+    padding: 0;
     border: 2px solid #B3762E;
     border-radius: 25px;
     /*height: 100 px;*/
@@ -13,8 +19,48 @@ header{
 header img{
     height: 100px;
 }
-
-.bleu{
+h1, h2{
+    text-align: center;
+}
+.titre{
     font-family: 'Eater', cursive;
+}
+.bleu{
+    
     color: #0B7DB3;
+
+}
+.green{
+color: green;
+}
+.red{
+    color: red;
+}
+.flex{
+    display: flex;
+}
+.bordure{
+    border: 2px solid #0B7DB3;
+    text-align: center;
+}
+.flex-petit{
+    flex: 1;
+}
+.flex-grand{
+    flex: 3;
+}
+.cadre{
+    text-align: center;
+    border: 2px solid #B3762E;
+    border-radius: 15px;
+    background-color: rgba(179, 118, 46, 0.4);
+    width: 40%;
+    margin: 1em auto;
+}
+.cadre a{
+    text-decoration: none;
+    color: #0B7DB3;
+}
+input{
+    border-radius: 10px;
 }

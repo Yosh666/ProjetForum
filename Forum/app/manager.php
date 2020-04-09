@@ -84,15 +84,15 @@
          * cette méthode permet d'ajouter de nouvelles données à la bdd
          * @return True ou message d'erreur
          */
-        public function add($data){ //$data est sous forme de tableau associatif [id=>2, pseudo=>Anne....]
+        public function add($data){ //$data est sous forme de tableau associatif [mail=>2@vroum.com, pseudo=>Anne....]
             $keys=array_keys($data);
             $values =array_values($data);
             $sql = "INSERT INTO ".$this->tableName."
                     (".implode(',',$keys).")
-                    VALUES
-                    (".implode(",",$values). "')";
+                     VALUES
+                    ('".implode(",",$values). "')";
 
 
-            return DAO :: insert($sql);
+            return DAO::insert($sql);
         }    
     }

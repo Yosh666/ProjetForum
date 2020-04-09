@@ -35,4 +35,15 @@
             return $msg;
         }
 
+        /**
+         * cette methode va maintenir un user connecté en le mettant dans la session
+         * 
+         */
+        public static function setUser($user){
+            if(!isset($_SESSION['user'])){
+                $_SESSION['user']=$user;
+                return true;
+            }
+            return false;
+        }
     }
