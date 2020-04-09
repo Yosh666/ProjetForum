@@ -24,7 +24,7 @@
             $sql = "SELECT *
                     FROM ".$this->tableName." m
                     WHERE m.sujet_id= :id
-                    ORDER BY date_post DESC
+                    
                     ";
             return $this->getMultipleResults(
                 DAO:: select($sql,['id'=>$idSujet]),

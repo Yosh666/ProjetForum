@@ -1,7 +1,8 @@
 <?php
     $auteurs= $result["data"]["user"];
-    $sujets= $result['data']['sujet'];
+    $sujet= $result['data']['sujet'];
     $messages=$result['data']['message'];
+    
  ?>
  
     <a class="cadre"href="?ctrl=forum&action=index">
@@ -10,8 +11,7 @@
 
 <?php
 
-if(!empty($sujets)){
-    foreach($sujets as $sujet){
+
         echo 
         "<div class='bordure flex'>
             <div class='bordure flex-petit'>
@@ -45,7 +45,7 @@ if(!empty($sujets)){
                     Soyez le premier à écrire un message!
                 </div>";
         }
-    }
-}
+    
+
 ?>
  
