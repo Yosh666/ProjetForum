@@ -23,5 +23,12 @@
             </div>";
         }
     }
-?>
     
+?>
+<div class="bordure">
+    <a href='?ctrl=forum&action=newsubject'>
+        <h3 class="brune">
+            Ecris un nouveau sujet à partager avec la communauté!
+        </h3>
+    </a>
+</div>

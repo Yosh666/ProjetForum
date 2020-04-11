@@ -106,20 +106,20 @@
                                 /*le in_array ici permet justement de voir que le checkUserexist = 0*/
                                 
                                 $user=[
-                                    'pseudo'=>$pseudo,
-                                    'mail'=>$mail,
-                                    'password'=>$password,
-                                    'role'=> null
+                                    'pseudo'=> $pseudo,
+                                    'mail'=> $mail,
+                                    'password'=> $password
+                                    
 //on fera le password_hash en argon2 plus tard
 
                                 ];
-                                if($manager->add($user)){
+                                $manager->add($user);
                                 
                                 header('Location:index.php?ctrl=connexion&action=login');
                            
                                 Session::addFlash('process','Bienvenue! Vous y êtes presque!'); 
                                 die();
-                                }
+                                
                             }
                             else{
                                 Session :: addFlash('error','Ce compte existe déja');
