@@ -104,13 +104,28 @@ use Model\Managers\UserManager;
 
         }
 
-        public function newMessage($id){
+        public function newMessage($idSujet){
             
+            if(!empty($_POST)){
+                $texte=filter_input(INPUT_POST,"texte",FILTER_SANITIZE_STRING);
+                /*FILTER_UNSAFE_RAW parce qu'on va utiliser tinyMCE 
+                qui du coup filtrera pr nous et aura besoin de mettre des balises HTIML*/
+                $messagemanager=new MessageManager();
+
+                $message=[
+                   "texte"=>$texte,
+                   "user_id"=> Session::getUser()->getId(),
+                   "sujet_id"=> $idSujet
+                   
+                ];
+                $messagemanager->add($message);
+                return $this-> readsubject($idSujet);
+            }
+           
 
 
 
-
-            return $this-> readsubject($id);
+            return $this-> readsubject($idSujet);
         }
     
        

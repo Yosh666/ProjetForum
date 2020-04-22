@@ -6,6 +6,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Eater&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Eater&family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./public/CSS/style.css">
+    <script src="https://cdn.tiny.cloud/1/rltaexquy3hqz307jc6sz4kcajjtddvmyloycab4ks9prs7a/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     <title>Nique ton pangolin</title>
 </head>
 <body>

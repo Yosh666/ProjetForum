@@ -76,9 +76,9 @@
                 (équivalent du WHERE quoi) vu que manager fait un SELECT * FROM table*/
                 if($multiple){
                     $results= $statement->fetchAll();//fetchAll() native de PDO
-                    if(count($results)==1){
+                    /*if(count($results)==1){
                         $results = $results[0];
-                    }
+                    }*/
                 }
                 else {
                     $results= $statement->fetch();

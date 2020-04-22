@@ -41,8 +41,8 @@
             '<form 
                 action="?ctrl=forum&action=newMessage&id='.$sujet->getId().'" method="post">
                 
-                <p class="bordure">
-                    <input type="textarea" rows="12" name="texte"  placeholder="donne ton avis">
+                <p class="bordure message">
+                    <input type="text" name="texte"  placeholder="donne ton avis">
                 </p>
                 <input class="cadre" id="valid" type="submit" value="Validez!">
             </form>';
@@ -55,16 +55,29 @@
             '<form 
                 action="?ctrl=forum&action=newMessage&id='.$sujet->getId().'" method="post">
                 
-                <p class="bordure">
-                    <input type="textarea" rows="12" name="texte"  placeholder="Sois le premier à écrire un message!">
+                <p class="bordure message">
+                    <input type="text" name="texte"  placeholder="Sois le premier à écrire un message!">
                 </p>
                 <input class="cadre" id="valid" type="submit" value="Validez!">
             </form>';
           
         }
+?>
+        <!--alors ça marche pas je sais pas pourquoi donc je laisse de coté pr l'instant
+        <script>
+        tinymce.init({
+          selector: '.message',
+          plugins: 'a11ychecker advcode casechange formatpainter linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tinycomments tinymcespellchecker',
+          toolbar: 'a11ycheck addcomment showcomments casechange checklist code formatpainter pageembed permanentpen table',
+          toolbar_mode: 'floating',
+          tinycomments_mode: 'embedded',
+          tinycomments_author: 'Author name',
+        });
+      </script>
+    -->
            
 
-?>
+
 
     
  
