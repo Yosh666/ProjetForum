@@ -127,7 +127,35 @@ use Model\Managers\UserManager;
 
             return $this-> readsubject($idSujet);
         }
-    
+        
+        public function changeMessage($idMessage){
+            $messagemanager=new MessageManager();
+            $message=$messagemanager->findOneById($idMessage);
+            //$user=$message->getUser();
+            
+            
+            if(!empty($_POST)){
+                $newtexte=filter_input(INPUT_POST,"newtexte",FILTER_SANITIZE_STRING);
+                $messagemanager->updateMessage($idMessage,$newtexte);
+                $sujetId=$message->getSujet()->getId();
+                //header('Location:index.php?ctrl=forum&action=readsubject&id='.$sujetId.'');
+                Session::addFlash("process","Bravo ton message est modifié");
+                $this->readsubject($sujetId);
+
+
+            }
+            
+
+
+            return[
+                "view"=>VIEW_DIR."changemessage.php",
+                "data"=>[
+                    
+                    "message"=>$message
+                ]
+            ];
+
+        }
        
     
     }

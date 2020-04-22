@@ -1,5 +1,8 @@
 <?php
-    $auteurs= $result["data"]["user"];
+
+use App\Session;
+
+$auteurs= $result["data"]["user"];
     $sujet= $result['data']['sujet'];
     $messages=$result['data']['message'];
     
@@ -33,9 +36,24 @@
                     </div>
                     <div class='bordure flex-grand'>
                         <p>".$message->getTexte()."</p>
-                    </div>
-                </div>";
+                    </div>";
+                $actuUserId=Session::getUser()->getId();
+                $actuUserRole= Session::getUser()->getRole();
+                $userid= $message->getUser()->getId();
+                
+                //var_dump($message->getUser());
+                if($userid==$actuUserId /*||  $actuUserRole=='admin'*/){
+                    echo"
+                    <a class='cadre' href='?ctrl=forum&action=changeMessage&id=".$message->getId()."'>
+                        Modifier
+                    </a> ";
                     
+                } 
+                ?>
+                </div>
+               
+<?php
+               
             }
         echo
             '<form 

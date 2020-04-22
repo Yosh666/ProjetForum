@@ -8,6 +8,7 @@
     /**
      * ce manager gére les message
      * @method findBySujet($idsujet)
+     * @method updateMessage($idMessage,$newtexte)
      */
     final class MessageManager extends Manager{
 
@@ -32,6 +33,15 @@
             );
         }
     
+
+        public function updateMessage($idMessage, $newtexte){
+
+            $sql = "UPDATE ".$this->tableName." SET text = :newtexte WHERE id_message = :id";
+
+            return DAO::update($sql, ['newtexte' => $newtexte, 'id' => $idMessage]);
+
+        }
+
     
     
     

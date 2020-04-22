@@ -10,6 +10,7 @@
      * @method static connect() connexion à la BDD
      * @method static insert() requêtes d'injection dans la BDD
      * @method static select() requêtes de sélection dans la BDD
+     * @method static update($sql,$params)
      * 
      */
     abstract class DAO{
@@ -76,9 +77,9 @@
                 (équivalent du WHERE quoi) vu que manager fait un SELECT * FROM table*/
                 if($multiple){
                     $results= $statement->fetchAll();//fetchAll() native de PDO
-                    /*if(count($results)==1){
+                    if(count($results)==1){
                         $results = $results[0];
-                    }*/
+                    }
                 }
                 else {
                     $results= $statement->fetch();
@@ -90,6 +91,24 @@
                 les managers veulent des $result ou des "null" pas des falses*/
             }
             catch(\Exception $e){
+                echo $e->getMessage();
+            }
+        }
+
+
+        /***
+         * cette methode permet d'effectuer les requete de type update
+         */
+        public static function update($sql, $params){
+            try{
+                $stmt = self::$bdd->prepare($sql);
+                
+                //on renvoie l'état du statement après exécution (true ou false)
+                return $stmt->execute($params);
+                
+            }
+            catch(\Exception $e){
+                
                 echo $e->getMessage();
             }
         }
