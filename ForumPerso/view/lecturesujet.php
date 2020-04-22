@@ -37,15 +37,34 @@
                 </div>";
                     
             }
-
+        echo
+            '<form 
+                action="?ctrl=forum&action=newMessage&id='.$sujet->getId().'" method="post">
+                
+                <p class="bordure">
+                    <input type="textarea" rows="12" name="texte"  placeholder="donne ton avis">
+                </p>
+                <input class="cadre" id="valid" type="submit" value="Validez!">
+            </form>';
+          
+        
+        
         }
         else{
-            echo 
-                "<div class='bordure'>
-                    Soyez le premier à écrire un message!
-                </div>";
+            echo
+            '<form 
+                action="?ctrl=forum&action=newMessage&id='.$sujet->getId().'" method="post">
+                
+                <p class="bordure">
+                    <input type="textarea" rows="12" name="texte"  placeholder="Sois le premier à écrire un message!">
+                </p>
+                <input class="cadre" id="valid" type="submit" value="Validez!">
+            </form>';
+          
         }
-    
+           
 
 ?>
+
+    
  

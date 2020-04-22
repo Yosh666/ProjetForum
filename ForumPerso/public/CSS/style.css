@@ -70,6 +70,11 @@ h3{
     text-decoration: none;
     color: #0B7DB3;
 }
-input{
+input {
+    
+    width: 90%;
     border-radius: 10px;
+}
+#writePost{
+    display: none;
 }

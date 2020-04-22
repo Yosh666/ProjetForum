@@ -46,4 +46,14 @@
             }
             return false;
         }
+
+        public static function getUser(){
+
+            return (isset($_SESSION['user']))?$_SESSION['user']:false;
+            /*si $_SESSION['user'] est rempli 
+            alors return le tableau remplit des data de l'user de la session
+            sinon retourner false (donc pas eu de login valide)
+            */
+
+        }
     }

@@ -2,7 +2,9 @@
     namespace Controller;
 
     //use App\Session;
-    use Model\Managers\UserManager;
+
+use App\Session;
+use Model\Managers\UserManager;
     use Model\Managers\SujetManager;
     use Model\Managers\MessageManager;
 
@@ -10,6 +12,8 @@
      * cette classe gére le forum l'accueil  les sujets et messages;
      * @method index() la page d'accueil
      * @method readsubject($id)
+     * @method newSubject()
+     * @method newMessage($id)
      */
     class ForumController{
         /*new UserManager->findAll()pour voir les pseudo
@@ -52,13 +56,64 @@
                     
                 ]
             ];
+        
+        }
 
+        public function newSubject(){
+            if(!empty($_POST)){
+                $titre=filter_input(INPUT_POST,"titre",FILTER_SANITIZE_SPECIAL_CHARS);
+                $texte=filter_input(INPUT_POST,'texte',FILTER_SANITIZE_SPECIAL_CHARS);
+            
+                if($titre){
+                    $smanager=new SujetManager();
+               
+                     $sujet=[
+                         'titre'=> $titre,
+                         'user_id'=> Session::getUser()->getId()
+                     ];
+                    $idSujet=$smanager->add($sujet);
+
+                    if($texte){
+                        $messagemanager=new MessageManager();
+
+                        $message=[
+                           "texte"=>$texte,
+                           "user_id"=> Session::getUser()->getId(),
+                           "sujet_id"=> $idSujet
+                           
+                        ];
+                        $messagemanager->add($message);
+                    }
+                    return $this-> readsubject($idSujet);
+                    
+                }
+//jusque là rien n'est sur
+
+                else{
+                    Session::addFlash('error',"tu dois mettre un titre");
+                }
+            
+            }            
+            return[
+                "view"=>VIEW_DIR."newsubject.php",
+                "data"=>[
+                    
+                ]
+            ];
 
 
         }
+
+        public function newMessage($id){
+            
+
+
+
+
+            return $this-> readsubject($id);
+        }
     
-    
-    
+       
     
     }
         

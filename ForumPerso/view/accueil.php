@@ -26,7 +26,7 @@
     
 ?>
 <div class="bordure">
-    <a href='?ctrl=forum&action=newsubject'>
+    <a href='?ctrl=forum&action=newSubject'>
         <h3 class="brune">
             Ecris un nouveau sujet à partager avec la communauté!
         </h3>

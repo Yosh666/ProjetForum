@@ -51,8 +51,9 @@
                 $statement= self::$bdd->prepare($sql);
                 $result = $statement-> execute();//execute()native de PDO
 
-                $statement->closeCursor();
-                return $result;
+               /* $statement->closeCursor();
+                return $result;*/
+                return self::$bdd->lastInsertId();
                 
 
             }
